@@ -1,0 +1,22 @@
+<header>
+    <p>REGISTRATION FORM</p>
+</header>
+<form #formVal="ngForm" (ngSubmit)="onSubmit(formVal)">
+    <div class="form">
+        <p>Registration Details</p>
+        <br>
+        <input  class="input" type="text" name="fname" placeholder="First Name" ngModel required>
+        <br>
+        <input class="input"  type="text" name="lname" placeholder="Last Name" ngModel required>
+        <br>
+        <input  class="input" type="text" name="email" placeholder="Email" ngModel required email #email="ngModel">
+        <small class="miss" *ngIf="!email.valid && email.touched">please enter valid email*</small>
+        <br>
+        <input class="input"  type="text" name="pass" placeholder="Password" ngModel required>
+        <br>
+        <div >
+            <button  class="button" type="submit" [disabled]="!formVal.valid">Register</button>
+            <button class="button"  type="submit">Cancel</button>
+        </div>
+    </div>
+</form>
